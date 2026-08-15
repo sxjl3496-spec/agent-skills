@@ -72,7 +72,7 @@ for i, page in enumerate(doc):
 
 ```python
 replacements = [
-    ("XXX（男 / 女，身份证号：XXXXXXXXXX）", "申请人（男，身份证号：430302XXXXXXXXXXXX）"),
+    ("XXX（男 / 女，身份证号：XXXXXXXXXX）", "申请人（男，身份证号：身份证号XXXXXXXXXX）"),
     ("20XX 年 XX 月至 20XX 年 XX 月", "在读期间"),
     # ... 全部占位符 → 真实值
 ]

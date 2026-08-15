@@ -30,7 +30,7 @@ User explicitly corrected (2026-08-05): "你不要修改模板，那是人家给
 2. **Extract `word/document.xml`** from the docx zip via `zipfile`. Work on the raw XML string.
 3. **Plain global `str.replace(old, new)` on the whole XML**, ordered most-specific-first:
    - Replace complete placeholder phrases WITH their context, e.g.
-     `"XXX（男 / 女，身份证号：XXXXXXXXXX）"` → `"申请人（男，身份证号：430302XXXXXXXXXXXX）"`
+     `"XXX（男 / 女，身份证号：XXXXXXXXXX）"` → `"申请人（男，身份证号：身份证号XXXXXXXXXX）"`
      `"20XX 年 XX 月至 20XX 年 XX 月"` → `"2021 年 9 月至 2026 年 6 月"`
      `"XXX一级学科（代码XXX）"` → `"应用经济学一级学科（代码XXXX）"`
    - **Short generic tokens (`XXX`, `XX学院`) LAST, and only with enough context** — bare `XXX` appears in the title too and would over-replace. Handle the title first with full phrase: `"关于XXX专业一致性的说明"` → `"关于申请人同志专业一致性的说明"`.
