@@ -36,7 +36,7 @@ source: https://github.com/genggng/hermes-arxiv-agent
 
 **上游默认关键词**：`all:quantization+AND+all:large+AND+all:language+AND+all:model`（量化+大语言模型）
 
-**用户方向**：碳排放权交易（基金申报方向，ABM碳市场仿真模拟）
+**示例方向**：碳排放权交易（科研项目，ABM 碳市场仿真模拟）
 
 **修正后关键词**（search_keywords.txt）：
 ```

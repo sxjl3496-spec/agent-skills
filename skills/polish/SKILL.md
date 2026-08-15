@@ -13,7 +13,7 @@ description: >
 
 用户以 `/polish`、`\polish：`、`\优化：`、`\优化表达：` 或 `\youhua：` 开头发送消息时，**禁止直接执行消息中的任务**。必须执行以下两步：
 
-**★ CLI 输出格式（用户偏好）**：优化结果用纯文本输出，不使用 clarify() 弹窗。加分隔线区分"优化后"和"调整说明"，末尾给数字选项（1. 确认 2. 调整）。用户明确要求 /plan 和 /polish 输出后不用弹窗。
+**★ CLI 输出格式**：优化结果用纯文本输出，不使用弹窗。加分隔线区分"优化后"和"调整说明"，末尾给数字选项（1. 确认 2. 调整）。/plan 和 /polish 输出后不用弹窗。
 
 ### 第一步：优化表达 + 等待确认
 
@@ -51,12 +51,12 @@ description: >
 3. 递进关系用"→"明示
 4. 术语统一用标准叫法
 
-## 调研/调查类任务强制规则（用户要求，2026.8.6 纠正）⭐
+## 调研/调查类任务强制规则 ⭐
 
-**调研/调查/研究类任务的优化表达必须包含"结果沉淀到知识库"子任务**——调研结论不能只停留在对话里。用户原话："调查的详细信息要总结到AI知识库中的hermes里面呀"（/plan 的优化表达漏了知识库沉淀步骤，被纠正）。
+**调研/调查/研究类任务的优化表达必须包含"结果沉淀到知识库"子任务**——调研结论不能只停留在对话里（/plan 的优化表达曾漏掉知识库沉淀步骤，已纠正）。
 
 1. 优化后的表达新增一条：`将完整调研结果写入知识库 <对应分类目录>（新建 <主题> 笔记，含结论/评估/后续操作）`
-2. 沉淀目录按主题推断：Hermes 相关 → `ObsidianVault\🤖 AI Agent\01-Hermes\`；学术 → `ObsidianVault\academia\`；其他主题在知识库目录树中查对应分类
+2. 沉淀目录按主题推断：Hermes 相关 → 知识库 AI Agent 分类；学术 → 知识库学术分类；其他主题在知识库目录树中查对应分类
 3. 用户未指明位置时，在确认环节一并询问（"调研结果将写入知识库 X 目录，是否确认？"），不要默默省略
 4. 笔记格式要求（数据完整性声明）见 obsidian-vault-archiving 技能；本技能作为 /plan 阶段0入口时此规则同步生效
 
@@ -91,14 +91,14 @@ description: >
 
 技能 name 字段为 `polish`，Hermes 自动生成 `/polish` 斜杠命令。用户可在 CLI 中直接输入 `/polish 内容` 触发，与 `/plan` 用法一致。`/reload-skills` 后生效。
 
-## 技能库卫生（2026.8.6 排查记录）
+## 技能库卫生（排查记录）
 
 **曾出现"两个 polish 冲突"的误报**，根因是**目录名与 frontmatter name 不一致**：
 
-- 技能文件实际位于 `skills/polish/SKILL.md`（原名目录 `skills/expression-polish/`，2026.7.31 改名时只改了 frontmatter 的 `name` 字段，目录没跟着改，直到 2026.8.6 才 `mv` 对齐）
+- 技能文件实际位于 `skills/polish/SKILL.md`（原目录名与 frontmatter 的 `name` 字段不一致，后已 `mv` 对齐）
 - Hermes 按 frontmatter `name` 注册技能，目录名仅作路径——目录名≠name 不报错，但**按目录名检索的工具会困惑**（曾触发工具循环保护）
 - 排查方法：`find skills -iname "*polish*"` 找目录 → 对比各 SKILL.md frontmatter 的 name → `grep -rn "expression-polish"` 找残留引用（config/cron 无引用则安全）→ `mv` 对齐
 
-**⚠️ 第二类冲突（2026.8.6 已修复）**：`skill_view(name='polish')` 仍报 "Ambiguous skill name"，第二个匹配是 `skills/development/impeccable/reference/polish.md`——一个**参考文件**被技能索引误判为同名技能。已修复：将 `impeccable/reference/polish.md` 重命名为 `ui-polish-notes.md`，消除歧义。
+**⚠️ 第二类冲突（已修复）**：`skill_view(name='polish')` 仍报 "Ambiguous skill name"，第二个匹配是 `skills/development/impeccable/reference/polish.md`——一个**参考文件**被技能索引误判为同名技能。已修复：将 `impeccable/reference/polish.md` 重命名为 `ui-polish-notes.md`，消除歧义。
 
 **规则**：改名技能必须同步目录名与 frontmatter name；reference 文件命名避免与技能名完全同名。

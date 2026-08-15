@@ -78,7 +78,7 @@ CLI 工具的常驻进程（如 OpenClaw gateway）要开机自启且**不弹控
 
 当 C 盘 npm 全局目录（`~/AppData/Roaming/npm/node_modules/`）过大、需要把某个 CLI 工具包（claude-code、opencode-ai 等）搬到 D 盘时使用。完整步骤见 `references/npm-global-migration.md`。核心要点：
 
-0. **目录布局（用户明确要求，2026.8.6 纠正）**：每个 agent 独立文件夹，并列在 `<知识库根目录>\\` 下（`ClaudeCode\` / `OpenCode\` / `OpenClaw\` / `Hermesagent\`），包放 `D:\...\<AgentName>\app\node_modules\<pkg>`。**禁止把多个 agent 合并进一个目录**（曾用 OpenCodeAgent 合并 Claude+OpenCode，被用户纠正拆分）；合并目录里的包自包含（claude-code 自带 node_modules、opencode-ai 自带二进制），拆开互不影响
+0. **目录布局**：每个 agent 独立文件夹，并列在 `<知识库根目录>\\` 下（`ClaudeCode\` / `OpenCode\` / `OpenClaw\` / `Hermesagent\`），包放 `<知识库根目录>\<AgentName>\app\node_modules\<pkg>`。**禁止把多个 agent 合并进一个目录**；合并目录里的包自包含（claude-code 自带 node_modules、opencode-ai 自带二进制），拆开互不影响
 1. **复制而非移动**：`cp -r` 包到上述 D 盘目标目录（如 `D:\...\ClaudeCode\app\node_modules\@anthropic-ai\claude-code`），保持原有 node_modules 内部结构
 2. **必须改两个 wrapper**：`.cmd`（Windows/`cmd.exe` 调用方用）和 bash 无扩展名版（Git Bash 用），都改为硬编码 D 盘绝对路径
 3. **⚠️ MSYS 路径陷阱**：bash wrapper 里 `exec node "/d/..."` 会被 node 当成 `C:\d\...` 报 Cannot find module —— 必须用 `D:/...`（正斜杠 Windows 路径）

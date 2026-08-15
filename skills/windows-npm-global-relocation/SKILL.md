@@ -39,14 +39,14 @@ ls <pkg>/node_modules | wc -l
 **scope 包注意**：`@anthropic-ai/claude-code` 这类要连 `@anthropic-ai` scope 目录一起搬。
 **npm 临时目录**：原 node_modules 下可能有 `.pkg-xxx`（npm 安装残留临时目录），确认无关后随目录删除。
 
-### 3. 移动包到 D 盘（遵循用户的目录偏好 ⭐）
+### 3. 移动包到 D 盘 ⭐
 ```bash
 mkdir -p <知识库根目录>/<ToolName>/app/node_modules
 mv C盘node_modules/<pkg> D盘目标路径
 ```
-**用户的目录偏好（2026.8.6 明确纠正）**：
-- 每个工具必须**独立文件夹并列存放**，不要多个工具挤在一个文件夹（曾把 Claude Code 和 OpenCode 都放 OpenCodeAgent 里被用户纠正）
-- 结构参照：`AIKnowledgeBase/` 下 `ClaudeCode/`、`OpenCode/`、`OpenClaw/`、`Hermesagent/` 并列
+**目录偏好**：
+- 每个工具必须**独立文件夹并列存放**，不要多个工具挤在一个文件夹
+- 结构参照：知识库根目录下 `ClaudeCode/`、`OpenCode/`、`OpenClaw/`、`Hermesagent/` 并列
 - 每个工具内部结构统一为 `<Tool>/app/node_modules/<pkg>`（与 OpenClaw 一致）
 - 工具的插件跟主工具走（oh-my-opencode 是 OpenCode 插件 → 放 OpenCode 下）；独立工具单独处理（@electron/asar 是打包工具，不属于任何 agent，可跟主工具放一起但标注用途）
 

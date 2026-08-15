@@ -29,4 +29,4 @@ AI 生成文本的典型痕迹：过度连接词（furthermore/moreover 连发�
 
 ## 实战案例
 
-本团队论文 Abstract 润色：丞相版采用"信息流重排+对比对象补全"（46.5-fold difference between grandfathering and benchmarking），全稿负号/符号统一（t = −49.7）——正是简化原则的落地。
+示例：某论文 Abstract 简化润色——采用"信息流重排+对比对象补全"，全稿负号/符号统一——正是简化原则的落地。

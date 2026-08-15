@@ -94,7 +94,7 @@ hermes skills list | grep <技能名>
 
 ## 步骤6：知识库沉淀（技能详细解读与构造）
 
-在 `ObsidianVault/🤖 AI Agent/09-Agent工程方法论/技能开源仓库/技能解读/` 建立文档体系（2026-08-07 V2.3 起，原 `🤖 AI Agent/技能详细解读与构造/` 已合并进技能开源仓库）。用户要求，方便学习和迁移：
+在 `技能开源仓库/技能解读/` 建立文档体系（V2.3 起，原 `技能详细解读与构造/` 已合并进技能开源仓库），方便学习和迁移：
 
 | 文档 | 内容 |
 |------|------|
@@ -105,7 +105,7 @@ hermes skills list | grep <技能名>
 
 每篇解读必须含：**数据完整性声明**（已获取/未获取/待补充/获取路径，见 obsidian-vault-archiving 技能）。
 
-## 步骤7：开源仓库同步与维护审计（2026.8.7 实测教训）
+## 步骤7：开源仓库同步与维护审计（实测教训）
 
 技能开源仓库（`ObsidianVault/🤖 AI Agent/09-Agent工程方法论/技能开源仓库/`）结构：
 ```
@@ -118,7 +118,7 @@ hermes skills list | grep <技能名>
 ```
 
 **核心陷阱——"有解读、没本体"**：技能本体装进 Hermes 技能库（步骤4）≠ 同步进开源仓库 `skills/`。
-用户 2026.8.7 审计时发现：解读文档已入库（superpowers/taste-skill/impeccable 等 29 份），
+审计时发现：解读文档已入库（superpowers/taste-skill/impeccable 等 29 份），
 但对应技能本体（superpowers 14子技能、taste-skill 9件套、impeccable、create-plan、gh-fix-ci）
 全部缺失在 `skills/` 里——仓库"能看解读、不能装配"。
 
@@ -133,14 +133,13 @@ done
 # 2. 核对 Hermes 技能库有但开源仓库没有的技能（本地方有=未同步）
 ls <Hermes数据目录>/skills/development/ | grep -iE "taste|impeccable"
 ls <Hermes数据目录>/skills/superpowers/  # 14子技能
-# 3. 敏感技能红线：iron-powder-business / family-factory-advisory /
-#    bank-strategic-research-report 永不入开源仓库（可装 Hermes 本地，不得写入知识库）
+# 3. 敏感技能红线：涉及个人商业/职业背景的技能永不入开源仓库（可装 Hermes 本地，不得写入知识库）
 ```
 
 **审计时的坑**：
 - README.md 是 CRLF+长行，read_file 会误判为 binary → 用 `cat` 或 `file README.md` 先确认
 - 统计口径要分清：README 里的"88项"按分类清单统计，`ls skills | wc -l` 才是实际文件数，两者要核对
-- 远端已配 origin（<GITHUB_USER>/agent-skills）但从未 push → `git log origin/master` 报 fatal 是正常现象，说明本地未推送；用户定规"先本地完善，后择机开源"，push 前需用户点头
+- 远端已配 origin 但从未 push → `git log origin/master` 报 fatal 是正常现象，说明本地未推送；定规"先本地完善，后择机开源"，push 前需用户确认
 
 ## 常见陷阱
 
@@ -150,9 +149,9 @@ ls <Hermes数据目录>/skills/superpowers/  # 14子技能
 4. **依赖未配置**：部分技能依赖外部工具（figma-implement-design 需 Figma MCP server、gh-fix-ci 需 gh CLI 认证），安装时在解读文档标注清楚"⚠️ 实战需先配置 XX"
 5. **分类选择**：技能库按分类组织，新技能放 development/ 或新建分类（如 superpowers）
 6. **版本更新**：定期 `hermes skills check` 检查官方技能更新（本地复制不受 hub 更新管理，需手动 pull）
-7. **目录名必须与 frontmatter name 一致（2026.8.6 实测）**：Hermes 按 SKILL.md 里的 `name:` 注册技能，不看目录名。若目录名 ≠ 声明名（如目录 `expression-polish/` 内声明 `name: polish`），会导致按目录检索的工具困惑，甚至触发工具循环保护。**改名技能时必须同步重命名目录**：`mv skills/<旧目录名> skills/<新name>`。排查技能重名/加载异常时先做两步：(1) `find skills -name SKILL.md | xargs grep -l "name: X"` 找同名声明；(2) 对比目录名与声明名。注意多分类同技能名歧义（如 `development/skill-creator` 与 `development/deerflow-skills/skill-creator` 并存时，skill_view 会报 Ambiguous 需按分类路径加载）。
+7. **目录名必须与 frontmatter name 一致（实测）**：Hermes 按 SKILL.md 里的 `name:` 注册技能，不看目录名。若目录名 ≠ 声明名（如目录 `expression-polish/` 内声明 `name: polish`），会导致按目录检索的工具困惑，甚至触发工具循环保护。**改名技能时必须同步重命名目录**：`mv skills/<旧目录名> skills/<新name>`。排查技能重名/加载异常时先做两步：(1) `find skills -name SKILL.md | xargs grep -l "name: X"` 找同名声明；(2) 对比目录名与声明名。注意多分类同技能名歧义（如 `development/skill-creator` 与 `development/deerflow-skills/skill-creator` 并存时，skill_view 会报 Ambiguous 需按分类路径加载）。
 
 ## 参考
 
-- `references/top-skills-leaderboard.md` - 2026.8.5 调研的8个顶级技能（来源/Star/结构/核心机制），含排行榜背景
+- `references/top-skills-leaderboard.md` - 调研的8个顶级技能（来源/Star/结构/核心机制），含排行榜背景
 - 关联技能：skill-distiller（从教程创建技能）、skill-creator（技能评测迭代循环）、obsidian-vault-archiving（知识库笔记规范）

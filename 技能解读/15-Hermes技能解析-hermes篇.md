@@ -41,10 +41,10 @@ created: 2026-08-05
 - **触发**：复杂、困难、深度分析、系统设计、架构、综合方案、帮我梳理
 - **核心**：复杂困难任务的模型路由/升级机制——5步以上推理链、3+文件交叉分析、系统设计、跨域综合时切换到更强思维模式
 
-## 7. multi-agent-delegation（丞相制委派）
+## 7. multi-agent-delegation（主Agent委派）
 
 - **触发**：所有任务接收时自动加载
-- **核心**：丞相制多Agent委派——Hermes（丞相）评估能力边界，能做的自己做，做不到的委派给助手（OpenWorker/Claude Code/OpenCode/OpenClaw）
+- **核心**：多Agent委派——Hermes 评估能力边界，能做的自己做，做不到的委派给助手（OpenWorker/Claude Code/OpenCode/OpenClaw）
 - **流程**：自包含上下文委派 → 返回后验证质量 → 发现短板主动升级
 
 ## 8. aionui-team-leadership（AionUi队长工作流）

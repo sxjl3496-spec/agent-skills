@@ -41,7 +41,7 @@ NO FIXES WITHOUT ROOT CAUSE INVESTIGATION FIRST
 - ❌ "报错了，可能是超时，把timeout调大试试"
 - ✅ "复现成功：调用X API时返回429。检查限额→确认Coding Plan额度耗尽→根因是降级链未生效（CLI_CONFIG快照），修复：重启gateway加载新配置"
 
-**与用户的排查要求一致**：逐层深入排除（查prefs→查DB→strings搜exe→asar extract→curl后端端口），不跳步给结论（2026.8.4 用户纠正）。
+**核心要求**：逐层深入排除（查prefs→查DB→strings搜exe→asar extract→curl后端端口），不跳步给结论。
 
 ## 调试模式
 
