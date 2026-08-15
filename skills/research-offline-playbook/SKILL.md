@@ -54,8 +54,8 @@ curl -sL 'https://html.duckduckgo.com/html/?q=<关键词>' | sed 's/<[^>]*>//g' 
 
 ```python
 # 搜索关键词相关的文件和目录
-search_files(pattern="*碳*", target="files", path="<知识库根目录>")
-search_files(pattern="*carbon*", target="files", path="<知识库根目录>")
+search_files(pattern="*行业*", target="files", path="<知识库根目录>")
+search_files(pattern="*报告*", target="files", path="<知识库根目录>")
 ```
 
 **搜索路径优先级**：
@@ -98,7 +98,7 @@ for i, page in enumerate(doc):
 查找过去会话中的相关讨论和已积累的资料：
 
 ```python
-session_search(query="本省 碳交易 碳市场", limit=5)
+session_search(query="某行业 政策 发展现状", limit=5)
 ```
 
 **使用场景**：

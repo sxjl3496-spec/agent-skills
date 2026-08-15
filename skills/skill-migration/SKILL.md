@@ -107,14 +107,14 @@ hermes skills list | grep <技能名>
 
 ## 步骤7：开源仓库同步与维护审计（实测教训）
 
-技能开源仓库（`ObsidianVault/🤖 AI Agent/09-Agent工程方法论/技能开源仓库/`）结构：
+技能开源仓库（`<技能开源仓库路径>`）结构：
 ```
 技能开源仓库/
 ├── README.md               # 版本+技能清单+来源表+排除项+维护记录
+├── CATALOG.md              # 技能分类目录（逐项带描述）
 ├── skills/                 # 可迁移技能本体（SKILL.md）
-├── 技能解读/               # 解读文档（29份）
-├── academic-standards/     # 学术方法论文档
-└── carbon-market-abm-toolkit/  # 论文配套代码
+├── 技能解读/               # 解读文档
+└── academic-standards/     # 学术方法论文档
 ```
 
 **核心陷阱——"有解读、没本体"**：技能本体装进 Hermes 技能库（步骤4）≠ 同步进开源仓库 `skills/`。

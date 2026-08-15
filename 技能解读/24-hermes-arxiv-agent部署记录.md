@@ -36,14 +36,14 @@ source: https://github.com/genggng/hermes-arxiv-agent
 
 **上游默认关键词**：`all:quantization+AND+all:large+AND+all:language+AND+all:model`（量化+大语言模型）
 
-**示例方向**：碳排放权交易（科研项目，ABM 碳市场仿真模拟）
+**示例方向**：<某科研方向>（按用户研究方向自定义）
 
-**修正后关键词**（search_keywords.txt）：
+**修正后关键词**（search_keywords.txt，示例）：
 ```
-all:"carbon emission trading" OR all:"emissions trading" OR all:"carbon market" OR all:"cap-and-trade" OR all:"carbon allowance" OR all:"emission trading scheme" OR all:"carbon trading mechanism" OR all:"carbon pricing"
+all:"<主题词1>" OR all:"<主题词2>" OR all:"<主题词3>" OR all:"<主题词4>" OR all:"<主题词5>" OR all:"<主题词6>" OR all:"<主题词7>" OR all:"<主题词8>"
 ```
 
-**验证结果**：检索到182篇论文，前5篇全部高度相关（碳价预测、cap-and-trade、EU碳市场尾部依赖、气候政策与能源转型）✅
+**验证结果**：检索到 N 篇论文，前 5 篇全部与检索方向高度相关 ✅
 
 ### 教训2：首次运行会按旧关键词下载论文
 
@@ -76,7 +76,7 @@ all:"carbon emission trading" OR all:"emissions trading" OR all:"carbon market" 
 | error | API调用失败 | 不显示 |
 
 **实测验证**：
-- "Carbon trading in China" → 📄 《Technological Forecasting and Social Change》被引254 ✅
+- "某篇真实论文标题" → 📄 《某期刊》被引 N 次 ✅
 - 最新 arXiv 论文多数显示"预印本"（因为确实还没发表，符合实际）
 
 **踩坑记录**：
@@ -87,7 +87,7 @@ all:"carbon emission trading" OR all:"emissions trading" OR all:"carbon market" 
 ## 工作流（每日cron自动执行）
 
 ```
-monitor.py 检索新论文（按search_keywords.txt，碳交易方向8个短语）
+monitor.py 检索新论文（按search_keywords.txt，<某方向>8个短语）
   → OpenAlex 期刊回溯（journal_lookup.py，标注发表期刊/被引数）
   → 下载PDF到papers/
   → 生成new_papers.json（含journal_status/journal_name/cited_by_count）
@@ -99,7 +99,7 @@ monitor.py 检索新论文（按search_keywords.txt，碳交易方向8个短语�
 
 ## 验证证据
 
-- ✅ monitor.py 用新关键词检索成功（3篇测试，全部碳交易相关）
+- ✅ monitor.py 用新关键词检索成功（3篇测试，全部与检索方向相关）
 - ✅ cron 配置正确（每天8点、deliver=origin、enabled）
 - ✅ 依赖齐全（pdfplumber/openpyxl/requests/PyMuPDF 均已装）
 

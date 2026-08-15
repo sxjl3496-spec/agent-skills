@@ -36,7 +36,7 @@ description: >
 
 ## 路径格式陷阱（重点，踩过两次）
 
-- node.exe 是 Windows 程序：bash wrapper 写 MSYS 路径 `<知识库根目录>/...` 会被 node 解析成 `C:\d\BaiduSyncdisk\...` → MODULE_NOT_FOUND
+- node.exe 是 Windows 程序：bash wrapper 写 MSYS 路径 `<知识库根目录>/...` 会被 node 解析成 `C:\<盘符>\<同步盘路径>\...` → MODULE_NOT_FOUND
 - bash wrapper 写 `D:\...` 反斜杠会被 sh 转义吞掉
 - ✅ bash wrapper 正确写法：**正斜杠** `<知识库根目录>/...`
 - ✅ .cmd wrapper 正确写法：反斜杠 `<知识库根目录>\\...`
