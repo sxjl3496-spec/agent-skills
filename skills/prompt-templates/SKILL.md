@@ -28,7 +28,7 @@ description: >
 4. 应用场景
 5. 优缺点对比
 
-搜索来源：GitHub API + Google（走Clash代理7897）
+搜索来源：GitHub API + Google（走Clash代理<代理端口>）
 输出语言：中文
 输出格式：Markdown，含表格和代码块
 ```

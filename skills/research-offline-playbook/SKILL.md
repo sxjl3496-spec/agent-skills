@@ -98,7 +98,7 @@ for i, page in enumerate(doc):
 查找过去会话中的相关讨论和已积累的资料：
 
 ```python
-session_search(query="湖南 碳交易 碳市场", limit=5)
+session_search(query="本省 碳交易 碳市场", limit=5)
 ```
 
 **使用场景**：

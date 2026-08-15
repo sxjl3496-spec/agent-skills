@@ -50,7 +50,7 @@ description: >
 ## 环境状态
 - gateway: 运行中/需重启
 - 模型: glm-5.2 (volcano)
-- 代理: Clash 7897
+- 代理: Clash <代理端口>
 ```
 
 ### 保存时机

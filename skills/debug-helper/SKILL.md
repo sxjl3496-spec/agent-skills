@@ -84,7 +84,7 @@ grep "api_key" config.yaml
 # 直连测试
 curl -s -o /dev/null -w "%{http_code}" URL --max-time 10
 
-# 代理测试（Clash 7897）
+# 代理测试（Clash <代理端口>）
 curl -s -x http://127.0.0.1:<代理端口> -o /dev/null -w "%{http_code}" URL --max-time 10
 
 # DNS 检查
@@ -149,5 +149,5 @@ ls -la --time-style=full-iso /path/to/file
 1. **环境变量未传递**：Windows Scheduled Task 启动的 gateway 不 source ~/.bashrc
 2. **CLI_CONFIG 快照**：gateway 启动时加载配置，修改 config.yaml 后需重启
 3. **f-string 反斜杠**：Python 3.11 中 f-string 内不能用反斜杠
-4. **代理端口**：Clash Verge 端口可能是 7897 而非 7890
+4. **代理端口**：Clash Verge 端口可能是 <代理端口> 而非 <默认端口>
 5. **thinking 模式**：Coding Plan 模型默认 thinking，需关闭

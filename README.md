@@ -1,7 +1,7 @@
 ﻿# Agent 技能开源仓库（本地维护版）
 
 > 版本：V3.4（2026-08-16，全库脱敏整改，总计 257 项）
-> 来源：Hermes 本地技能库 + 太尉（Claude Code）~/.claude/skills/（含 arkcli 工具族）+ OpenCode ~/.config/opencode/skills/ + Aion CLI
+> 来源：Hermes 本地技能库 + 太尉（Claude Code）技能目录（含 arkcli 工具族）+ OpenCode 技能目录 + Aion CLI
 > 定位：本地技能仓库维护中（用户指示：先本地完善，后择机开源）——给任意支持 SKILL.md 的 Agent 直接装配
 > 排除项：敏感技能（铁粉厂/家庭工厂/银行战略）+ 平台绑定技能（hermes/claude/aionui/openclaw专属）
 

@@ -139,7 +139,7 @@ hermes skills list | grep <技能名>   # 应显示 enabled
 - 更新 `技能详细解读与构造-总览.md` 的技能解读表 + 安装位置
 - 更新 `NN-外部技能与Hermes现有技能对比矩阵.md` 的借鉴优先级表（标状态）
 
-**⚠️ 开源敏感技能排除**（用户 2026-08-05 指示，技能库准备开源）：写入知识库的技能解析**必须排除**涉及个人信息/家庭经营/职业背景的技能——`iron-powder-business`（铁粉厂）、`family-factory-advisory`（家庭工厂）、`bank-strategic-research-report`（银行战略）可安装使用，但**不得**写入知识库解读文档。仅可在"排除声明"中列出名称说明为何不收录。筛选规则：技能描述含家庭经营、个人职业、亲属、财务细节的→不写入知识库。
+**⚠️ 开源敏感技能排除**（用户 2026-08-05 指示，技能库准备开源）：写入知识库的技能解析**必须排除**涉及个人信息/家庭经营/职业背景的技能——涉及个人/家庭经营、个人职业背景的技能可安装使用，但**不得**写入知识库解读文档。仅可在"排除声明"中列出类别说明为何不收录。筛选规则：技能描述含家庭经营、个人职业、亲属、财务细节的→不写入知识库。
 
 ### 步骤5：借鉴点回写（把价值留在技能库）
 
@@ -157,20 +157,20 @@ hermes skills list | grep <技能名>   # 应显示 enabled
 5. **知识库目录已固定**：技能解读体系在 `09-Agent工程方法论/技能详细解读与构造/`（2026.8.5 从顶层移入），不要另建位置
 6. **Node CLI 的 MSYS vs Windows 路径**（⭐ 2026.8.5 impeccable 实测）：从 Git Bash 调用外部技能的 Node CLI（如 `npx impeccable detect`）时，路径参数必须是 Windows 路径（`C:\...` 或 `C:/...`），不能用 MSYS 路径（`/tmp/...`、`/c/...`），否则报 `cannot access`。先 cd 到包目录再用 `node cli/bin/cli.js` 调用；首次 `npx --yes` 会下载包约30-60秒
 7. **execute_code 可能被审批拦截**：批量文件操作（复制/验证）优先用 terminal，不要在 execute_code 里做递归删除等敏感操作
-8. **部署含默认配置的开源项目前必须先校准**（⭐ 2026.8.5 hermes-arxiv-agent 教训）：引入的不只是纯 SKILL.md 技能，还有带脚本/配置/cron 的完整项目（如 hermes-arxiv-agent：monitor.py + search_keywords.txt + cron）。**上游默认配置往往匹配作者自己的场景，不匹配用户**——hermes-arxiv-agent 默认关键词是 `quantization+large+language+model`（量化LLM），而用户方向是碳排放权交易，首次测试运行下载了33篇无关论文，用户提醒才修正。**正确顺序**：部署前先查 memory/现有技能确认用户研究方向（碳排放权交易/ABM省级碳市场模拟）→ 修改项目配置文件（search_keywords.txt）→ 再首次运行。若已误跑：清理旧数据（papers/、new_papers.json、papers_record.xlsx、pending_llm_ids.txt 及上游示例数据 excel_data.json/feishu_msg.md 等），保持干净状态待 cron 首跑。cron prompt 一般无硬编码关键词（monitor.py 运行时读配置文件），改配置即可生效，无需动 cron
+8. **部署含默认配置的开源项目前必须先校准**（⭐ 2026.8.5 hermes-arxiv-agent 教训）：引入的不只是纯 SKILL.md 技能，还有带脚本/配置/cron 的完整项目（如 hermes-arxiv-agent：monitor.py + search_keywords.txt + cron）。**上游默认配置往往匹配作者自己的场景，不匹配用户**——hermes-arxiv-agent 默认关键词是 `quantization+large+language+model`（量化LLM），而用户方向是碳排放权交易，首次测试运行下载了33篇无关论文，用户提醒才修正。**正确顺序**：部署前先查 memory/现有技能确认用户研究方向（碳排放权交易/ABM碳市场仿真模拟）→ 修改项目配置文件（search_keywords.txt）→ 再首次运行。若已误跑：清理旧数据（papers/、new_papers.json、papers_record.xlsx、pending_llm_ids.txt 及上游示例数据 excel_data.json/feishu_msg.md 等），保持干净状态待 cron 首跑。cron prompt 一般无硬编码关键词（monitor.py 运行时读配置文件），改配置即可生效，无需动 cron
 9. **预印本 vs 期刊的档次查询**（⭐ 2026.8.5 用户问"arXiv论文是什么期刊档次"）：arXiv 是预印本服务器——不经过同行评审、论文不标注期刊档次（实测10篇 0/10 有 journal_ref）、几乎全英文无中文期刊。要回答"发表在哪、什么档次"，用 OpenAlex API 按标题反查（`filter=title.search:` 避免 search= 对长标题/标点报400；遍历 locations 优先取 type=journal；带 User-Agent+mailto；批量间隔0.4s防限流）。完整实现见 `references/hermes-arxiv-agent-deployment.md` 的 OpenAlex 节。注意：OpenAlex 能查期刊名+被引数，但**查不到中科院分区/影响因子**（中文评价体系增值数据）——如需分区需另建 ISSN 映射表
 10. **给用户列候选清单必须用大白话+类比，禁止术语表**（⭐⭐ 2026.8.5 用户明确纠正"你列给我，我哪里看得懂"）：调研出候选技能/项目后，呈现决策表时**每条都要有通俗解释**——"它是啥（一句人话）+ 对用户有啥用（结合其场景：科研/论文/桌宠/基金申报）+ 装不装建议"。术语（MCP/SKILL.md/evals/许可证）必须翻译成生活类比：MCP→"让AI直接操控软件的接口"、SKILL.md→"教AI做一件事的技能包"、许可证→"能不能白嫖/商用"。**句式模板**：`**是啥**：...一句话。**对用户有啥用**：...结合科研/桌宠/基金场景。**建议**：✅装/⚠️暂缓(理由)/❌不装(理由)。` 用户认可这种"大白话解释版"（2026.8.5 实测：术语表版被拒→类比版被"认可，装这五个"）。技术细节留给知识库文档，聊天里只给人话
 11. **技能安装目录扫描是两层深度，容器目录不显示**（⭐ 2026.8.5 实测）：Hermes 识别 `分类/<技能名>/SKILL.md`，即 `development/better-ui-kit/better-ui/SKILL.md` 会被识别为独立技能 better-ui，但**容器目录本身（better-ui-kit，无自己的SKILL.md）不出现在技能列表**。验证时按子技能名 grep，不要找容器名。多子技能包安装模式：`mkdir -p <分类>/<包名>` + 把每个子技能目录复制进去
 12. **`hermes skills list` 长技能名显示截断**（⭐ 2026.8.5 实测）：超长技能名（如 recreate-scientific-figure-in-drawio）在列表中被截断为 `recreate-scientific-figu…`，用完整名 grep 会漏判"未识别"。验证用前缀或部分名 grep，或 `grep -c` 后人工确认
 13. **完整应用类仓库（非纯技能）拆成"技能部分+应用本体"**（⭐ 2026.8.5 DeerFlow 教训）：DeerFlow 这类仓库=应用(backend/frontend 35M)+skills/ 技能目录。**只装技能部分**进 Hermes（纯SKILL.md直接可用），应用本体单独部署到独立目录（如 `hermes-data/../deerflow`）留待以后运行，知识库文档中说明"应用需Docker/Node/Python运行，未配置API key前不可用"。不要把35M应用拷进技能库
-14. **已有文献综述的升级 vs 从零生成是两套流程**（⭐ 2026.8.5 省自科基金综述实战）：`literature-review` 技能管从零生成；**已有综述优化**走"诊断量化→方案审核→补文献→消模糊引用→统一格式→验证"流程，完整套路见 `references/literature-review-upgrade-playbook.md`。关键步骤：正则扫`有研究`模糊引用（实测9处比自认8处多）、OpenAlex多轮检索补2024-2026文献（避开纯电力调度邻域噪声）、格式少数迁就多数、时间范围写"至检索日"不写未来日期、跨模型验证报"摘要不完整"先核对原文（可能是截断误判）
+14. **已有文献综述的升级 vs 从零生成是两套流程**（⭐ 2026.8.5 基金综述实战）：`literature-review` 技能管从零生成；**已有综述优化**走"诊断量化→方案审核→补文献→消模糊引用→统一格式→验证"流程，完整套路见 `references/literature-review-upgrade-playbook.md`。关键步骤：正则扫`有研究`模糊引用（实测9处比自认8处多）、OpenAlex多轮检索补2024-2026文献（避开纯电力调度邻域噪声）、格式少数迁就多数、时间范围写"至检索日"不写未来日期、跨模型验证报"摘要不完整"先核对原文（可能是截断误判）
 15. **cross_model_verify 对"生成"类任务语义错位**（⭐ 2026.8.5 实测）：cross_model_verify 的定位是**审查验证**，若用其 prompt 要求"生成中文介绍/写文案"（非审查指令），它会按验证框架输出"未通过/缺信息"的审查报告而不是生成内容。**只用于审查验证**；生成类任务直接调 API 或让主 agent 写。涉及 Coding Plan 模型时注意：`cross_model_verify(api="volcano", model="deepseek-v4-flash")` 可用；DashScope 文本 API 403 时换 volcano 通道
 
 ## 参考
 
 - `references/skill-repo-inventory.md` - 已调研技能仓库清单、各自子技能结构与安装状态（2026.8.5 四轮调研完整快照：97技能/24文档）
-- `references/academic-skill-ecosystem.md` - 学术研究技能生态速查（6维度矩阵/候选清单/核心方法论/回写记录，用户吉首大学科研场景专项）
+- `references/academic-skill-ecosystem.md` - 学术研究技能生态速查（6维度矩阵/候选清单/核心方法论/回写记录，用户某高校科研场景专项）
 - `references/hermes-arxiv-agent-deployment.md` - hermes-arxiv-agent 完整部署记录（关键词校准/环境适配/清理清单/验证方法/OpenAlex期刊回溯，含 cron job 12ad7a78fa62）
-- `references/literature-review-upgrade-playbook.md` - 已有文献综述的升级流程（诊断量化/OpenAlex补文献/消模糊引用/格式统一/跨模型验证，2026.8.5 省自科基金综述实战）
+- `references/literature-review-upgrade-playbook.md` - 已有文献综述的升级流程（诊断量化/OpenAlex补文献/消模糊引用/格式统一/跨模型验证，2026.8.5 基金综述实战）
 - skill-distiller（兄弟技能）：从教程/文档蒸馏新技能
 - ai-app-provider-config：配置桌面 AI 应用接入 provider（技能导入不涉及 provider）

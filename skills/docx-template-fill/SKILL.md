@@ -15,8 +15,8 @@ description: Fill Chinese official docx form templates that use XXX/XX placehold
 
 User explicitly corrected (2026-08-05): "你不要修改模板，那是人家给过来的模板，你把那个信息填进去可以了，不要修改它的模板" — official templates are fixed formats from the issuing authority. Replace ONLY the `XXX`/`XX`/`XXXX` placeholder tokens with real values; the template's own phrasing, sentence structure, and words must remain byte-for-byte identical.
 
-- ✅ Replace `XXX一级学科（代码XXX）` → `应用经济学一级学科（代码0202）` (placeholder → value only)
-- ❌ Do NOT restructure: e.g. rewriting "隶属于XXX一级学科" into a longer clause, injecting extra codes (like 0202Z1) the template never asked for, or adding honorifics like "同志" to a placeholder replacement
+- ✅ Replace `XXX一级学科（代码XXX）` → `应用经济学一级学科（代码XXXX）` (placeholder → value only)
+- ❌ Do NOT restructure: e.g. rewriting "隶属于XXX一级学科" into a longer clause, injecting extra codes the template never asked for, or adding honorifics like "同志" to a placeholder replacement
 - If real data has no corresponding placeholder in the template, TELL the user "模板没有该字段位置" — do not modify the template to accommodate it
 - Verify by re-reading: template text (non-placeholder parts) should be unchanged; only the tokens differ
 
@@ -32,7 +32,7 @@ User explicitly corrected (2026-08-05): "你不要修改模板，那是人家给
    - Replace complete placeholder phrases WITH their context, e.g.
      `"XXX（男 / 女，身份证号：XXXXXXXXXX）"` → `"申请人（男，身份证号：430302XXXXXXXXXXXX）"`
      `"20XX 年 XX 月至 20XX 年 XX 月"` → `"2021 年 9 月至 2026 年 6 月"`
-     `"XXX一级学科（代码XXX）"` → `"应用经济学一级学科（代码0202）"`
+     `"XXX一级学科（代码XXX）"` → `"应用经济学一级学科（代码XXXX）"`
    - **Short generic tokens (`XXX`, `XX学院`) LAST, and only with enough context** — bare `XXX` appears in the title too and would over-replace. Handle the title first with full phrase: `"关于XXX专业一致性的说明"` → `"关于申请人同志专业一致性的说明"`.
    - Print ✅/⚠️ per replacement (⚠️ = no match → must investigate, don't deliver silently).
 4. **If a phrase spans a run boundary** (`</w:t><w:t>` between words), plain replace misses it. Fix: replace the XML fragment including the boundary tags, or regex tolerant of tag characters between words. Verify by re-extracting text.
