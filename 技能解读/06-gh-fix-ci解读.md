@@ -59,9 +59,9 @@ source: https://github.com/composio-community/awesome-codex-skills/tree/main/gh-
 - 仍有失败时非零退出码（可用于自动化）
 - 用法：`python inspect_pr_checks.py --repo "." --pr "123"` 或 `--json` 输出
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-**Hermes 无对应技能**。完全新增的 CI 修复能力。
+**本库无对应技能**。完全新增的 CI 修复能力。
 相关但不同：
 - debug-helper：通用调试（错误分类、日志分析、API诊断），非 GitHub 专用
 - plan：修复计划草拟（gh-fix-ci 明确依赖它）
@@ -73,7 +73,6 @@ source: https://github.com/composio-community/awesome-codex-skills/tree/main/gh-
 3. **范围纪律**：非 GitHub Actions 的 check 不处理，保持工作流精简
 4. **自动化友好**：非零退出码让脚本可集成 CI 管道
 
-## 安装状态
+## 使用注意
 
-✅ 已安装到 Hermes 技能库 `development\gh-fix-ci\`（含 scripts\inspect_pr_checks.py）
-⚠️ 注意：实战需要 gh CLI 已认证（`gh auth login`）
+- 实战需要 gh CLI 已认证（`gh auth login`）

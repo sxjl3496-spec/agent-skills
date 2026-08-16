@@ -64,10 +64,10 @@ mcp-builder/
     └── requirements.txt
 ```
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-**Hermes 无对应技能**。完全新增的 MCP 开发能力。
-相关但不同：ai-app-provider-config（配置AionUi的provider）、hermes-provider-config（Hermes模型provider）——这些是配置消费方，mcp-builder 是开发 MCP server 本身。
+**本库无对应技能**。完全新增的 MCP 开发能力。
+相关但不同：模型 provider 配置类技能是配置消费方，mcp-builder 是开发 MCP server 本身。
 
 ## 可借鉴的提升点
 
@@ -75,7 +75,3 @@ mcp-builder/
 2. **评估驱动开发**：evaluation.py 量化评估 MCP server 质量
 3. **错误消息设计**："引导agent走向解决方案"的错误设计原则
 4. **资源组织**：reference/ 与 scripts/ 分离的清晰结构
-
-## 安装状态
-
-✅ 已安装到 Hermes 技能库 `development\mcp-builder\`（含全部 references 和 scripts）

@@ -8,8 +8,7 @@ license: MIT
 
 # DeerFlow 2.0 深度解读
 
-> 来源：stophobia/deerflow2.0-enhanced（★651，字节跳动 DeerFlow 2.0 中文本地化版）
-> 用户指定安装，MIT 许可证。
+> 来源：stophobia/deerflow2.0-enhanced（★651，字节跳动 DeerFlow 2.0 中文本地化版）· MIT 许可证。
 
 ## 1. 是什么
 
@@ -73,12 +72,12 @@ DeerFlow 自带 **21个公开技能**，其中科研相关的极有价值：
 | 推荐模型 | Doubao-Seed-2.0-Code、DeepSeek v3.2、Kimi 2.5 |
 | 配置 | config.example.yaml（环境变量注入API key） |
 
-## 5. 部署状态（2026-08-05）
+## 5. 部署要点
 
-- **技能**：21个公开技能已全部安装到 Hermes `development/deerflow-skills/`（纯SKILL.md，可直接调用）
-- **应用本体**：已部署到 `<deerflow目录>\`（21M，含backend/frontend/docs）
-- **运行方式**：需要时用 Docker 或本地启动（`make dev` / docker compose）
-- **注意**：应用本体未配置API key（config.example.yaml 是示例），运行时需注入
+- **技能**：21个公开技能以 SKILL.md 形式提供，可直接调用
+- **应用本体**：包含 backend/frontend/docs 三部分
+- **运行方式**：Docker（推荐）或本地启动（`make dev` / docker compose）
+- **注意**：默认配置为示例（config.example.yaml），运行时需注入 API key
 
 ## 6. 与 Hermes 现有 deep-research 的关系
 
@@ -88,20 +87,11 @@ Hermes 已有 deep-research 技能（Imbad0202/academic-research-skills ★40.8K
 |------|---------------------|----------------------|
 | 来源 | Imbad0202（学术向） | 字节DeerFlow（工程向） |
 | 侧重点 | 学术文献综述 | 多角度网络调研方法论 |
-| 集成 | 已装 | 本次新装 |
 
 两者互补：学术论文调研用 Hermes 版，通用课题调研用 DeerFlow 版。
 
-## 7. 开源合规确认
-
-- ✅ MIT 许可证（字节跳动官方开源）
-- ✅ 21个技能全部可自由使用/修改/分发
-- ✅ 无敏感信息
-- ✅ README 多语言（英/中/日），适合开源分享
-- ✅ 附带 SECURITY.md、CONTRIBUTING.md（开源项目规范范例）
-
-## 8. 后续操作
+## 7. 后续操作
 
 1. **运行应用**：`cd <deerflow目录> && docker compose up`（需配置API key）
-2. **技能调用**：直接对 Hermes 说"用 deep-research 调研XXX"或"生成PPT"（deerflow-skills 已装）
+2. **技能调用**：直接对 Hermes 说"用 deep-research 调研XXX"或"生成PPT"
 3. **科研应用**：paper-research 技能可用于文献调研，与 literature-review 搭配

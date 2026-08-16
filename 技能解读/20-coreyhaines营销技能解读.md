@@ -71,6 +71,6 @@ source: https://github.com/coreyhaines31/marketingskills
 3. **技能间路由**：描述中明确"传统SEO见seo-audit，结构化数据见schema"——技能间引用规范
 4. **冷邮件方法论**：主题行/开场白/CTA/多触点序列的完整框架
 
-## 安装状态
+## 收录状态
 
-✅ 已安装2个核心技能到 Hermes 技能库 `business\`：ai-seo、cold-email
+✅ 收录2个核心技能：ai-seo、cold-email

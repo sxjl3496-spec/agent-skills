@@ -61,6 +61,6 @@ Obsidian CEO 亲自编写，教 AI agent 如何与 Obsidian 交互。核心是 *
 2. **CLI 交互模式**：Obsidian CLI 的完整命令集（读/建/搜/管）比 Hermes 的 vault-search 更强大
 3. **Bases 数据库视图**：Obsidian 的数据库能力（过滤器/公式/摘要）——Hermes 知识库可探索
 
-## 安装状态
+## 收录状态
 
-✅ 已安装到 Hermes 技能库 `knowledge-management\`：obsidian-cli、obsidian-markdown、obsidian-bases
+✅ 收录：obsidian-cli、obsidian-markdown、obsidian-bases

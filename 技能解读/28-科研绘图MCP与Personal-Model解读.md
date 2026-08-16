@@ -8,8 +8,7 @@ license: MIT
 
 # drawio 科研绘图 与 personal-model 解读
 
-> 来源：GitHub AI Agent 项目日报（2026-08-05）精选安装。
-> 用户确认安装的5个项目之二。
+> 来源：GitHub AI Agent 项目日报（2026-08-05）。
 
 ## 1. drawio-scientific-illustrator（科研绘图MCP，★1,260，MIT）
 
@@ -58,7 +57,7 @@ license: MIT
 
 - **仓库**：https://github.com/Intuition-Lab/personal-model
 - **许可证**：Apache-2.0
-- **安装位置**：未安装为Hermes技能（见下方说明）
+- **收录状态**：仅作理念借鉴（见下方说明）
 
 ### 是什么
 **Persome**（personal-model 的运行时）：一个本地优先的 macOS 守护进程，观察真实用户屏幕上下文，形成持久状态，构建**可审计的个人模型**，通过 MCP 提供给客户端。
@@ -76,8 +75,8 @@ license: MIT
 - Markdown/SQLite/evomem 存储
 - REST + MCP 服务
 
-### ⚠️ 为什么未安装为 Hermes 技能
-1. **依赖 macOS**（Persome 运行时是 macOS 守护进程），用户是 Windows 环境
+### ⚠️ 为什么未直接收录为技能
+1. **依赖 macOS**（Persome 运行时是 macOS 守护进程），不适合 Windows 环境
 2. 是**完整应用**（安装脚本+守护进程+模型快照），不是 SKILL.md
 3. 与 Hermes 现有**记忆体系**（MEMORY.md/USER.md）功能重叠
 
@@ -86,19 +85,4 @@ license: MIT
 1. **可审计记忆**：记忆可以查看、修正、遗忘（Hermes 记忆是黑盒）
 2. **分层模型**：Point→Line→Face→Volume 的渐进式记忆沉淀
 3. **本地优先+隐私**：数据在本地，不依赖云
-4. **HUMAN.md 概念**：把"关于人的档案"做成标准文件——与用户"知识库开源迁移"的理念一致
-
-## 开源合规确认
-
-- ✅ drawio：MIT 许可证
-- ✅ personal-model：Apache-2.0（宽松，可商用）
-- ✅ 均无敏感信息
-
-## 备注
-
-**本次实际安装汇总**（用户确认的5个）：
-1. ✅ jakubkrehel/skills → better-ui-kit（7子技能）
-2. ✅ SimpleEnglish → simple-english
-3. ✅ drawio-scientific-illustrator → drawio-scientific-figure
-4. 📚 personal-model → 仅学习理念（依赖macOS无法装）
-5. ✅ DeerFlow 2.0 → deerflow-skills（21技能）+ 应用本体部署
+4. **HUMAN.md 概念**：把"关于人的档案"做成标准文件

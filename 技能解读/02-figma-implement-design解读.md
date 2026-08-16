@@ -64,9 +64,9 @@ source: https://github.com/openai/skills/tree/main/skills/.curated/figma-impleme
 - 用户提供 Figma URL（`figma.com/design/:fileKey/:fileName?node-id=x-x`）
 - 项目已有设计系统或组件库（首选）
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-**Hermes 无对应技能**。这是完全新增的能力，属于"设计转代码"垂直领域。
+**本库无对应技能**。这是完全新增的能力，属于"设计转代码"垂直领域。
 
 ## 可借鉴的提升点
 
@@ -74,7 +74,6 @@ source: https://github.com/openai/skills/tree/main/skills/.curated/figma-impleme
 2. **技能边界矩阵**：用表格清晰划分5个相邻技能的适用场景，避免触发混乱
 3. **截断处理策略**：大响应时用 metadata → 子节点逐级获取的分层方法
 
-## 安装状态
+## 使用注意
 
-✅ 已安装到 Hermes 技能库 `development\figma-implement-design\`
-⚠️ 注意：实战需要先配置 Figma MCP server（Hermes 尚未配置），未配置前技能作为方法论参考
+- 实战需要先配置 Figma MCP server；未配置前可作为方法论参考

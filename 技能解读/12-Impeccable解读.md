@@ -103,9 +103,9 @@ reference/
 └── 其他: codex, personas, product
 ```
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-| 维度 | Impeccable | Hermes frontend-design | Taste-Skill |
+| 维度 | Impeccable | 本仓库 frontend-design | Taste-Skill |
 |------|-----------|----------------------|-------------|
 | 形式 | 23命令体系 | 原则集 | 三拨盘流程 |
 | 命令式交互 | ✅ `impeccable:audit` | ❌ | ❌ |
@@ -123,7 +123,7 @@ reference/
 4. **register 区分**（brand vs product）：设计前先判断"设计即产品"还是"设计服务产品"，影响整个设计决策
 5. **物理场景句**：主题选择前写一句物理场景，强制具体化（"SRE凌晨2点看告警"vs"可观测性dashboard"）
 
-## 安装状态
+## 收录状态
 
-✅ 已安装到 Hermes 技能库 `development\impeccable\`（69个文件：SKILL.md + 38个reference）
-⭐ 特别说明：这是**为 Hermes 原生移植**的技能，frontmatter 含 `metadata.hermes` 字段，天然兼容
+✅ 已收录至本仓库技能库（对应 `skills/impeccable/`，69 个文件：SKILL.md + 38 个 reference）
+⭐ 特别说明：该技能为 Hermes Agent 原生移植，frontmatter 含 `metadata.hermes` 字段，天然兼容

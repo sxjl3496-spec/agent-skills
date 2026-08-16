@@ -78,9 +78,9 @@ source: https://github.com/composio-community/awesome-codex-skills/tree/main/cre
 - 过多微步骤
 - 写代码片段（保持计划与实现无关）
 
-## 与 Hermes plan 技能的对比
+## 与仓库 plan 技能的对比
 
-| 维度 | create-plan | Hermes plan |
+| 维度 | create-plan | 本库 plan |
 |------|-------------|-------------|
 | 定位 | 单条消息输出简洁计划 | 全流程任务规划器（阶段0-4） |
 | 模式 | 全程只读 | 边规划边执行 |
@@ -90,16 +90,12 @@ source: https://github.com/composio-community/awesome-codex-skills/tree/main/cre
 
 **相同点**：都是任务规划；都强调先理解需求再动手；都有"防跑偏"目标
 
-**不同点**：create-plan 是轻量模板（适合快速产出计划文本），Hermes plan 是完整方法论（含模型路由、交叉验证、质量门控）。create-plan 更像 plan 技能中"阶段1输出计划"这一步的极简版。
+**不同点**：create-plan 是轻量模板（适合快速产出计划文本），本库 plan 是完整方法论（含模型路由、交叉验证、质量门控）。create-plan 更像 plan 技能中"阶段1输出计划"这一步的极简版。
 
 ## 可借鉴的提升点
 
-1. **Scope In/Out 显式标注**：Hermes plan 可加入明确的"范围内/范围外"清单
+1. **Scope In/Out 显式标注**：本库 plan 可加入明确的"范围内/范围外"清单
 2. **checklist 动词开头**：可强化 plan 执行步骤的可操作性
 3. **Open questions 小节**：计划中明确列出未知项（最多3条）
-4. **只读模式**：规划阶段不写文件，Hermes plan 阶段1可借鉴
+4. **只读模式**：规划阶段不写文件，本库 plan 阶段1可借鉴
 5. **提问克制**：最多1-2个问题，不确定但不阻塞就合理假设
-
-## 安装状态
-
-✅ 已安装到 Hermes 技能库 `development\create-plan\`

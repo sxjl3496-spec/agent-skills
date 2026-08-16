@@ -51,9 +51,9 @@ source: https://github.com/anthropics/skills/tree/main/skills/frontend-design
 - **构建中自我批判**：环境支持就截图（一图胜千言）
 - **香奈儿建议**：出门前照镜子，摘掉一件配饰
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-**Hermes 无对应技能**。完全新增的差异化前端设计能力。
+**本库无对应技能**。完全新增的差异化前端设计能力。
 相关但不同：desktop-pet-creation（桌宠视觉）——那是角色图生成，frontend-design 是网页 UI 设计方法论。
 
 ## 可借鉴的提升点
@@ -62,7 +62,3 @@ source: https://github.com/anthropics/skills/tree/main/skills/frontend-design
 2. **Token系统方法**：色彩/字体/布局/签名四要素设计计划
 3. **两遍工作法**：设计→批判→再构建，防止一次性产出模板货
 4. **文案设计化**：把文案当作设计材料对待
-
-## 安装状态
-
-✅ 已安装到 Hermes 技能库 `development\frontend-design\`

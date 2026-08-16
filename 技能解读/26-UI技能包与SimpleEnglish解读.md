@@ -8,8 +8,7 @@ license: MIT
 
 # jakubkrehel/skills 与 SimpleEnglish 技能解读
 
-> 来源：GitHub AI Agent 项目日报（2026-08-05）精选安装。
-> 用户确认安装的5个项目之一。
+> 来源：GitHub AI Agent 项目日报（2026-08-05）。
 
 ## 1. jakubkrehel/skills（UI技能百宝箱，★3,049，MIT）
 
@@ -32,7 +31,7 @@ license: MIT
 
 ### 使用场景
 - 用户做**桌面宠物界面**、**网页/工具前端**时，让 Hermes 用这些技能审查和优化UI
-- 与已装的 taste-skill（审美）、impeccable（反模式检测）形成**UI质量三件套**：
+- 与 taste-skill（审美）、impeccable（反模式检测）形成**UI质量三件套**：
   - taste-skill：审美方向
   - impeccable：代码级反模式检测
   - better-ui-kit：功能/无障碍/文案维度
@@ -70,9 +69,3 @@ STE 规则**顺带消灭AI味**（长句、同义词轮换、hedges模糊语、�
 - 写 API 文档/README/操作手册 → simple-english（严格模式）
 - 做桌宠界面 → better-ui-kit 全家桶
 - 界面文案（按钮/提示）→ better-writing
-
-## 开源合规确认
-
-- ✅ 两个仓库均为 MIT 许可证（最宽松，可入开源知识库）
-- ✅ 无敏感/个人信息
-- ✅ 附带的评测文件可一并分享（体现选型严谨性）

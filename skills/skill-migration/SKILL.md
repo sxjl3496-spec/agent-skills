@@ -27,7 +27,7 @@ description: >
   ↓
 5. 验证：frontmatter 检查 + hermes skills list 确认
   ↓
-6. 沉淀：知识库建立「技能详细解读与构造」文档体系
+6. 沉淀：在技能库建立解读文档体系
 ```
 
 ## 步骤1：调研（克隆源仓库）
@@ -92,25 +92,25 @@ hermes skills list | grep <技能名>
 **frontmatter 兼容性**：Claude/Codex 标准 SKILL.md 与 Hermes 完全兼容（name+description
 必填，license/metadata 可选）。直接复制即可，无需转换。
 
-## 步骤6：知识库沉淀（技能详细解读与构造）
+## 步骤6：知识库沉淀（技能解读文档）
 
-在 `技能开源仓库/技能解读/` 建立文档体系（V2.3 起，原 `技能详细解读与构造/` 已合并进技能开源仓库），方便学习和迁移：
+在 `技能开源仓库/技能解读/` 建立文档体系，方便学习和迁移：
 
 | 文档 | 内容 |
 |------|------|
-| 总览.md | 目录导航 + 安装位置 + 数据完整性声明 |
-| 01~08-<技能名>解读.md | 每个技能一篇：来源/核心机制/工作流/与Hermes对比/可借鉴点/安装状态 |
+| 总览.md | 目录导航 + 数据完整性声明 |
+| 01~08-<技能名>解读.md | 每个技能一篇：来源/核心机制/工作流/与Hermes对比/可借鉴点 |
 | 09-对比矩阵.md | 外部技能 vs Hermes 现有技能逐项对比 + 借鉴优先级 |
 | 10-安装与迁移指南.md | 完整迁移流程 + 常见坑 |
 
 每篇解读必须含：**数据完整性声明**（已获取/未获取/待补充/获取路径，见 obsidian-vault-archiving 技能）。
 
-## 步骤7：开源仓库同步与维护审计（实测教训）
+## 步骤7：开源仓库同步与维护审计
 
 技能开源仓库（`<技能开源仓库路径>`）结构：
 ```
 技能开源仓库/
-├── README.md               # 版本+技能清单+来源表+排除项+维护记录
+├── README.md               # 项目简介+版本+技能清单+装配指南
 ├── CATALOG.md              # 技能分类目录（逐项带描述）
 ├── skills/                 # 可迁移技能本体（SKILL.md）
 ├── 技能解读/               # 解读文档
@@ -118,28 +118,26 @@ hermes skills list | grep <技能名>
 ```
 
 **核心陷阱——"有解读、没本体"**：技能本体装进 Hermes 技能库（步骤4）≠ 同步进开源仓库 `skills/`。
-审计时发现：解读文档已入库（superpowers/taste-skill/impeccable 等 29 份），
-但对应技能本体（superpowers 14子技能、taste-skill 9件套、impeccable、create-plan、gh-fix-ci）
-全部缺失在 `skills/` 里——仓库"能看解读、不能装配"。
+常见问题：解读文档已入库，但对应技能本体缺失在 `skills/` 里——仓库"能看解读、不能装配"。
 
-**维护审计 checklist（每次 V 版本更新后必做）**：
+**维护审计 checklist（每次版本更新后必做）**：
 ```bash
 # 1. 交叉比对：解读提到的技能名 vs skills/ 实际入库
 cd "<技能开源仓库>"
-grep -ohE '\[\[[A-Za-z][A-Za-z-]+' "技能解读/技能详细解读与构造-总览.md" | sed 's/\[\[//' | sort -u
+grep -ohE '\[\[[A-Za-z][A-Za-z-]+' "技能解读/"*.md | sed 's/\[\[//' | sort -u
 for s in superpowers taste-skill impeccable create-plan gh-fix-ci; do
   ls skills/ | grep -qi "$s" && echo "✓ $s 已入库" || echo "✗ $s 缺失"
 done
 # 2. 核对 Hermes 技能库有但开源仓库没有的技能（本地方有=未同步）
 ls <Hermes数据目录>/skills/development/ | grep -iE "taste|impeccable"
 ls <Hermes数据目录>/skills/superpowers/  # 14子技能
-# 3. 敏感技能红线：涉及个人商业/职业背景的技能永不入开源仓库（可装 Hermes 本地，不得写入知识库）
+# 3. 敏感技能红线：涉及个人商业/职业背景的技能不纳入开源仓库
 ```
 
 **审计时的坑**：
 - README.md 是 CRLF+长行，read_file 会误判为 binary → 用 `cat` 或 `file README.md` 先确认
-- 统计口径要分清：README 里的"88项"按分类清单统计，`ls skills | wc -l` 才是实际文件数，两者要核对
-- 远端已配 origin 但从未 push → `git log origin/master` 报 fatal 是正常现象，说明本地未推送；定规"先本地完善，后择机开源"，push 前需用户确认
+- 统计口径要分清：README 里的技能数量按分类清单统计，`ls skills | wc -l` 才是实际文件数，两者要核对
+- 远端已配 origin 但从未 push → `git log origin/master` 报 fatal 是正常现象，说明本地未推送；push 前需用户确认
 
 ## 常见陷阱
 

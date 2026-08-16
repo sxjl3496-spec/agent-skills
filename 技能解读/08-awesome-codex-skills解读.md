@@ -26,12 +26,12 @@ source: https://github.com/composio-community/awesome-codex-skills
 | codebase-migrate | 代码库迁移 |
 | deploy-pipeline | 部署管道 |
 | gh-address-comments | 处理GitHub评论 |
-| **gh-fix-ci** | CI故障修复（已安装） |
+| **gh-fix-ci** | CI故障修复 |
 | issue-triage | issue分流 |
 | pr-review-ci-fix | PR审查+CI修复 |
-| **create-plan** | 简洁计划（已安装） |
-| **mcp-builder** | MCP server开发（已安装） |
-| **skill-creator** | 技能创建（已安装） |
+| **create-plan** | 简洁计划 |
+| **mcp-builder** | MCP server开发 |
+| **skill-creator** | 技能创建 |
 | skill-installer | 技能安装器 |
 | skill-share | 技能创建+Slack分享 |
 | template-skill | 技能模板 |
@@ -109,12 +109,12 @@ python skill-installer/scripts/install-skill-from-github.py \
 - **社区精选**：社区高质量贡献
 - **官方出品**：特定公司（Vercel、OpenAI）发布
 
-## 与 Hermes 的关系
+## 对本仓库的价值
 
-**不可安装为技能**（是索引而非技能本体），但价值巨大：
-1. **技能来源索引**：需要新能力时先查这47个，避免从零开发
+**不直接收录为技能**（是索引而非技能本体），但价值巨大：
+1. **技能来源索引**：需要新能力时先查这 47 个，避免从零开发
 2. **标杆参考**：每个技能是社区验证的 SKILL.md 写法范例
-3. **skill-installer 模式**：Hermes 的 `hermes skills install` 命令与此类似
+3. **skill-installer 模式**：一行命令安装技能的设计，可借鉴到各 Agent 平台的技能管理工具
 
 ## 可借鉴的提升点
 
@@ -123,6 +123,6 @@ python skill-installer/scripts/install-skill-from-github.py \
 3. **评级标签**：官方/社区/精选的信任分级体系
 4. **与生态协作**：Composio 提供 MCP Gateway 让技能有真实行动能力
 
-## 安装状态
+## 收录说明
 
-📚 未安装为技能（索引仓库）。调研素材保留在 `skills_research\awesome-codex-skills\`，本文档即其解读与索引。
+📚 本仓库以解读与索引形式收录该仓库（未直接收录其技能本体）。

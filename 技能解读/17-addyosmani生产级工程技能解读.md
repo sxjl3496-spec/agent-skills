@@ -125,6 +125,6 @@ source: https://github.com/addyosmani/agent-skills
 3. **source溯源**：Hermes 写框架代码时缺乏"必须引用官方文档"的强制纪律
 4. **8斜杠命令体系**：/spec /plan /build /test /review /ship 的生命周期映射清晰
 
-## 安装状态
+## 收录状态
 
-✅ 已安装6个核心技能到 Hermes 技能库 `development\`：spec-driven-development、source-driven-development、doubt-driven-development、context-engineering、idea-refine、incremental-implementation
+✅ 收录6个核心技能：spec-driven-development、source-driven-development、doubt-driven-development、context-engineering、idea-refine、incremental-implementation

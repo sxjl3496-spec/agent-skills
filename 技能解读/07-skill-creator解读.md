@@ -75,9 +75,9 @@ skill-creator/
   - 低自由度（严格流程）：步骤必须明确时用
 - **Skills 提供什么**：专用工作流、工具集成、领域专长、捆绑资源
 
-## 与 Hermes skill-distiller 的对比
+## 与仓库 skill-distiller 的对比
 
-| 维度 | skill-creator | Hermes skill-distiller |
+| 维度 | skill-creator | 本库 skill-distiller |
 |------|--------------|------------------------|
 | 流程 | 创建→测试→评测→迭代循环 | 从教程/文档蒸馏技能 |
 | 评测 | 量化 benchmark + 方差分析 + description优化 | 无评测环节 |
@@ -92,12 +92,8 @@ skill-creator/
 
 ## 可借鉴的提升点
 
-1. **测试 prompts + 量化评测循环**：Hermes 的 skill-distiller 缺评测环节，可引入
-2. **description improver**：独立脚本优化技能触发准确性——Hermes 技能描述也可定期优化
+1. **测试 prompts + 量化评测循环**：本库的 skill-distiller 缺评测环节，可引入
+2. **description improver**：独立脚本优化技能触发准确性——本库技能描述也可定期优化
 3. **四问澄清法**：创建技能前先问清做什么/何时触发/输出格式/是否要测试
 4. **上下文公共资源原则**：技能写作要精简，不重复 agent 已知内容
 5. **分级自由度**：根据任务脆弱性决定指令的具体程度
-
-## 安装状态
-
-✅ 已安装到 Hermes 技能库 `development\skill-creator\`（Anthropic 完整版，含 agents/、eval-viewer/、scripts/）

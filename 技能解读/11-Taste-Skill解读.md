@@ -89,9 +89,9 @@ LLM 设计输出差的最大原因：跳过简报推断直接跳到默认美学�
 | brutalist-skill | 原始机械界面、瑞士排版、极端尺度对比 |
 | stitch-skill | Google Stitch语义设计规则 |
 
-## 与 Hermes 现有技能对比
+## 与仓库现有技能对比
 
-| 维度 | Taste-Skill | Hermes frontend-design (Anthropic) |
+| 维度 | Taste-Skill | 本仓库 frontend-design（Anthropic 来源） |
 |------|-------------|-----------------------------------|
 | 定位 | 完整流程（三拨盘+流程） | 设计原则 |
 | 风格流派 | soft/minimalist/brutalist 多流派 | 单一 |
@@ -110,6 +110,6 @@ LLM 设计输出差的最大原因：跳过简报推断直接跳到默认美学�
 4. **真实设计系统映射表**：简报像什么→用什么官方包，避免发明CSS
 5. **output-skill**：防AI省略代码块/占位注释——与 verify 证据先行呼应
 
-## 安装状态
+## 收录状态
 
-✅ 已安装到 Hermes 技能库 `development\taste-skill\`（12个子技能：design-taste-frontend、gpt-taste、image-to-code、imagegen-web/mobile、brandkit、redesign、soft、minimalist、brutalist、stitch、output）
+✅ 已收录至本仓库技能库（对应 `skills/` 下的 taste-skill-v1、design-taste-frontend、gpt-taste 等子技能目录）

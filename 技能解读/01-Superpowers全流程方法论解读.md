@@ -83,9 +83,9 @@ source: https://github.com/obra/superpowers
 - **触发**：为 superpowers 体系编写新技能
 - **核心**：技能要描述"动作"而非"特定工具"，保持 harness 无关
 
-## 与 Hermes 现有技能的对比
+## 与仓库现有技能的对比
 
-| 维度 | Superpowers | Hermes现有 |
+| 维度 | Superpowers | 本库现有 |
 |------|-------------|-----------|
 | 计划 | writing-plans：零上下文工程师视角 | plan：阶段0-4+模型路由+审批 |
 | 验证 | verification-before-completion：证据先行铁律 | verify：cross_model_verify跨模型验证 |
@@ -95,12 +95,8 @@ source: https://github.com/obra/superpowers
 
 ## 可借鉴的提升点（⭐重点）
 
-1. **HARD-GATE 机制**：设计未批准不实现。Hermes 的 plan 技能已有"等待确认"环节，但可强化为"任何规模项目都必须先设计后实施"
-2. **证据先行铁律**：verification-before-completion 的"本消息内没跑过验证就不能声称通过"，比 Hermes verify 更严格
-3. **子agent驱动开发**：Hermes 的 delegate_task 可借鉴"逐任务派发+审查+继续"模式（注：v0.16.0 credential pool bug 限制可用性）
-4. **1%规则**：只要有1%可能技能适用就必须调用——可强化 Hermes 技能的触发纪律
-5. **TDD 铁律**：Hermes 无 TDD 技能，test-driven-development 可直接补位
-
-## 安装状态
-
-✅ 已安装到 Hermes 技能库 `superpowers\` 分类（14个子技能全部识别启用）
+1. **HARD-GATE 机制**：设计未批准不实现。plan 技能已有"等待确认"环节，但可强化为"任何规模项目都必须先设计后实施"
+2. **证据先行铁律**：verification-before-completion 的"本消息内没跑过验证就不能声称通过"，比本库 verify 更严格
+3. **子agent驱动开发**："逐任务派发+审查+继续"模式，可用于 agent 委派类任务的编排
+4. **1%规则**：只要有1%可能技能适用就必须调用——可强化本库技能的触发纪律
+5. **TDD 铁律**：本库无 TDD 技能，test-driven-development 可直接补位
