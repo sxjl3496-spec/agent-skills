@@ -1,82 +1,87 @@
-﻿# Agent Skills 开源技能库
+﻿# Agent Skills — Open Source Skill Library
 
-> **250+ 个即装即用的 AI Agent 技能（SKILL.md），支持 Claude Code / OpenCode / Hermes / Cursor 等任意支持技能规范的 Agent**
+> **250+ ready-to-use AI Agent skills (SKILL.md) for Claude Code / OpenCode / Hermes / Cursor and any Agent that supports the skill spec**
 >
 > [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 > [![Skills](https://img.shields.io/badge/Skills-250%2B-blue)](CATALOG.md)
-> [![Version](https://img.shields.io/badge/Version-V3.9-green)]()
+> [![Version](https://img.shields.io/badge/Version-V3.11-green)]()
+>
+> **[中文版](README.zh-CN.md)** | English
 
-一套覆盖**学术科研、软件开发、前端设计、生产力办公、媒体创作、金融研究、商业社交**等 17 大类的 Agent 技能集合。每个技能是一个标准化的 `SKILL.md`（YAML frontmatter + Markdown 正文），Agent 加载后即可获得该领域的专业工作流、命令模板与质量门控。
+A collection of **250+ Agent skills** across 17 categories — academic research, software development, frontend design, productivity, media creation, finance research, business & social. Each skill is a standardized `SKILL.md` (YAML frontmatter + Markdown body). Once loaded, your Agent gains professional workflows, command templates, and quality gates for that domain.
 
-## ✨ 特性
+## ✨ Features
 
-- **🧩 即装即用**：复制技能目录即可装配，零依赖、零配置
-- **📚 250+ 技能**：从论文写作到代码审查，从数据可视化到智能家居，覆盖主流 Agent 工作场景
-- **✅ 质量门控**：每个技能内置验证/复核流程，减少 AI 输出"看起来对但实际错"
-- **🌐 中英双语**：大量技能提供中文版本，适配中文学术与办公场景
-- **📖 深度解读**：附 25 份技能解读文档 + 分类目录（CATALOG.md），快速定位所需能力
+- **🧩 Plug & Play**: Copy a skill folder and it's ready — zero dependencies, zero config
+- **📚 250+ Skills**: From paper writing to code review, data visualization to smart home, covering mainstream Agent workflows
+- **✅ Quality Gates**: Each skill embeds verification/check flows to reduce AI "looks right but is wrong" outputs
+- **🌐 Bilingual**: Many skills provide Chinese versions for Chinese academic & office scenarios
+- **📖 Deep Reads**: 25 in-depth skill guides + a categorized catalog (CATALOG.md) for quick discovery
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 装配方式
+### Install
 
 ```bash
 # Claude Code
-cp -r skills/<技能名> ~/.claude/skills/
+cp -r skills/<skill-name> ~/.claude/skills/
 
 # OpenCode
-cp -r skills/<技能名> ~/.config/opencode/skills/
+cp -r skills/<skill-name> ~/.config/opencode/skills/
 
 # Hermes
-# 复制到 hermes-data/skills/<分类>/
+# Copy to hermes-data/skills/<category>/
 
-# 其他 Agent
-# 按平台技能规范导入 skills/<名>/SKILL.md（frontmatter 含 name/description）
+# Other Agents
+# Import skills/<name>/SKILL.md per your platform's skill spec (frontmatter has name/description)
 ```
 
-### 查看目录
+### Browse
 
-- [📇 CATALOG.md](CATALOG.md) —— 250 项技能分类总目录（含逐项描述）
-- [📂 skills/](skills/) —— 技能本体（每项一个目录）
-- [📖 技能解读/](技能解读/) —— 25 份深度解读文档
-- [📐 academic-standards/](academic-standards/) —— 学术方法论文档（引用规范 + 写作流程）
+- [📇 CATALOG.md](CATALOG.md) — Full categorized catalog of all 250 skills (with descriptions)
+- [📂 skills/](skills/) — Skill bodies (one folder per skill)
+- [📖 技能解读/](技能解读/) — 25 in-depth skill guides (Chinese)
+- [📐 academic-standards/](academic-standards/) — Academic writing standards (citation rules + writing workflows)
 
-## 📊 技能分类总览
+## 📊 Category Overview
 
-| 分类 | 数量 | 分类 | 数量 |
-|------|------|------|------|
-| 🎓 学术科研 | 31 | 🧩 Better-UI-Kit | 7 |
-| ⚡ Superpowers 方法论 | 14 | 🌋 arkcli 工具族 | 24 |
-| 🎨 反Slop设计品味 | 13 | 🔗 Letta 生态 | 2 |
-| 💎 Impeccable 前端 | 1 | 🔧 开发工程 | 46 |
-| 🖼️ 前端与设计 | 26 | 📝 Obsidian | 8 |
-| 📦 生产力办公 | 22 | 💡 通用方法论 | 16 |
-| 🎬 媒体创作 | 14 | 💼 商业与社交 | 10 |
-| 🐙 GitHub 工作流 | 6 | 🤖 MLOps | 5 |
-| 📈 金融与研究 | 5 | | |
+| Category | Count | Category | Count |
+|----------|-------|----------|-------|
+| 🎓 Academic & Research | 31 | 🧩 Better-UI-Kit | 7 |
+| ⚡ Superpowers Methodology | 14 | 🌋 arkcli Tool Family | 24 |
+| 🎨 Anti-Slop Design Taste | 13 | 🔗 Letta Ecosystem | 2 |
+| 💎 Impeccable Frontend | 1 | 🔧 Development Engineering | 46 |
+| 🖼️ Frontend & Design | 26 | 📝 Obsidian | 8 |
+| 📦 Productivity & Office | 22 | 💡 General Methodology | 16 |
+| 🎬 Media Creation | 14 | 💼 Business & Social | 10 |
+| 🐙 GitHub Workflows | 6 | 🤖 MLOps | 5 |
+| 📈 Finance & Research | 5 | | |
 
-**合计：250 项**（另有 11 项随主包分发的子技能）
+**Total: 250 skills** (+ 11 sub-skills shipped with parent packages)
 
-## 📁 目录结构
+## 📁 Repository Layout
 
 ```
 agent-skills/
-├── README.md                    # 本文件
-├── CATALOG.md                   # 技能分类目录（250 项，逐项带描述）
+├── README.md                    # This file (English)
+├── README.zh-CN.md              # Chinese version
+├── CATALOG.md                   # Full skill catalog (250 items with descriptions)
 ├── LICENSE                      # MIT License
-├── skills/                      # 250 项可迁移技能（SKILL.md 格式）
-├── 技能解读/                    # 25 份技能深度解读文档
-└── academic-standards/          # 学术方法论文档（引用规范+写作流程）
+├── skills/                      # 250 migratable skills (SKILL.md format)
+├── 技能解读/                    # 25 in-depth skill guides
+└── academic-standards/          # Academic writing standards (citation rules + workflows)
 ```
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎通过以下方式贡献：
+We welcome contributions in many ways:
 
-1. **提交技能**：将技能目录放入 `skills/<分类>/`，确保包含完整 `SKILL.md`（frontmatter 含 `name` / `description`）
-2. **改进现有技能**：修复描述、补充步骤、增加示例
-3. **提交 Issue**：报告技能缺陷、提出新技能需求
+1. **Submit a skill**: Put a skill folder under `skills/<category>/` with a complete `SKILL.md` (frontmatter includes `name` / `description`)
+2. **Improve existing skills**: Fix descriptions, add steps, add examples
+3. **Open an Issue**: Report skill bugs, request new skills
 
-## 📄 许可
+> Note: This repository is a **general-purpose skill collection** — it contains no personal/business-sensitive information and no platform-specific internals. Personal workflow skills and platform-bound skills are kept in private repositories per open-source compliance.
+
+## 📄 License
 
 [MIT License](LICENSE) © 2026 Hermes Agent Community
